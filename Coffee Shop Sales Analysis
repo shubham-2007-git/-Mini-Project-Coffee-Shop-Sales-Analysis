@@ -1,1 +1,58 @@
+# Mini Project: Coffee Shop Sales Analysis
 
+Solution using NumPy and Pandas.
+
+## Step 1: Import Libraries
+import numpy as np
+import pandas as pd
+
+## Step 2: Create NumPy Arrays
+coffee = np.array(["Espresso", "Latte", "Cappuccino", "Mocha", "Cold Coffee"])
+
+cups_sold = np.array([120, 95, 150, 80, 110])
+
+price = np.array([120, 180, 160, 200, 150])
+
+## Step 3: Create a Pandas DataFrame
+df = pd.DataFrame({
+    "Coffee": coffee,
+    "Cups Sold": cups_sold,
+    "Price": price
+})
+
+print(df)
+
+## Step 4: Create Revenue Column
+df["Revenue"] = df["Cups Sold"] * df["Price"]
+
+print(df)
+
+## Step 5: Average Coffee Price
+print("Average Coffee Price: ₹", np.mean(price))
+## Step 6: Most Expensive Coffee
+highest_price = df[df["Price"] == df["Price"].max()]
+
+print(highest_price)
+
+## Step 7: Most Sold Coffee
+best_seller = df[df["Cups Sold"] == df["Cups Sold"].max()]
+
+print(best_seller)
+
+## Step 8: Total Revenue
+print("Total Revenue: ₹", df["Revenue"].sum())
+
+## Step 9: Final Sales Report
+print("\n========== COFFEE SHOP SALES REPORT ==========")
+
+print(df)
+
+print("\nMost Sold Coffee")
+print(best_seller)
+
+print("\nMost Expensive Coffee")
+print(highest_price)
+
+print("\nAverage Coffee Price: ₹", np.mean(price))
+
+print("Total Revenue: ₹", df["Revenue"].sum())
